@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1f504b9f541c4c109f130cd2b09e9ed8" Name="Diagram1">
+        <EntityTypeShape EntityType="DemoDBModel.Manufacturers" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDBModel.OrderData" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDBModel.Orders" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDBModel.PickUpPoints" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDBModel.Products" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDBModel.ProductTypes" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDBModel.Providers" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDBModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDBModel.UserRoles" Width="1.5" PointX="1.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DemoDBModel.Users" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <AssociationConnector Association="DemoDBModel.FK_Products_Manufacturers" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDBModel.FK_OrderData_PickUpPoints" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDBModel.FK_OrderData_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDBModel.FK_Orders_OrderData" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDBModel.FK_Orders_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDBModel.FK_Products_ProductTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDBModel.FK_Products_Providers" ManuallyRouted="false" />
+        <AssociationConnector Association="DemoDBModel.FK_Users_UserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

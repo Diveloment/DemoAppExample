@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище DemoDBModelContainer" CdmEntityContainer="DemoDBEntities">
+    <EntitySetMapping Name="Manufacturers">
+      <EntityTypeMapping TypeName="DemoDBModel.Manufacturers">
+        <MappingFragment StoreEntitySet="Manufacturers">
+          <ScalarProperty Name="Manufacturer_id" ColumnName="Manufacturer_id" />
+          <ScalarProperty Name="Manufacturer_name" ColumnName="Manufacturer_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderData">
+      <EntityTypeMapping TypeName="DemoDBModel.OrderData">
+        <MappingFragment StoreEntitySet="OrderData">
+          <ScalarProperty Name="OrderData_id" ColumnName="OrderData_id" />
+          <ScalarProperty Name="OrderData_data" ColumnName="OrderData_data" />
+          <ScalarProperty Name="OrderData_endData" ColumnName="OrderData_endData" />
+          <ScalarProperty Name="OrderData_pickUpPoint" ColumnName="OrderData_pickUpPoint" />
+          <ScalarProperty Name="OrderData_user" ColumnName="OrderData_user" />
+          <ScalarProperty Name="OrderData_code" ColumnName="OrderData_code" />
+          <ScalarProperty Name="OrderData_status" ColumnName="OrderData_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="DemoDBModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Order_id" ColumnName="Order_id" />
+          <ScalarProperty Name="Order_dataId" ColumnName="Order_dataId" />
+          <ScalarProperty Name="Order_productId" ColumnName="Order_productId" />
+          <ScalarProperty Name="Order_count" ColumnName="Order_count" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PickUpPoints">
+      <EntityTypeMapping TypeName="DemoDBModel.PickUpPoints">
+        <MappingFragment StoreEntitySet="PickUpPoints">
+          <ScalarProperty Name="PickUpPoint_id" ColumnName="PickUpPoint_id" />
+          <ScalarProperty Name="PickUpPoint_index" ColumnName="PickUpPoint_index" />
+          <ScalarProperty Name="PickUpPoint_city" ColumnName="PickUpPoint_city" />
+          <ScalarProperty Name="PickUpPoint_street" ColumnName="PickUpPoint_street" />
+          <ScalarProperty Name="PickUpPoint_building" ColumnName="PickUpPoint_building" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="DemoDBModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Product_id" ColumnName="Product_id" />
+          <ScalarProperty Name="Product_article" ColumnName="Product_article" />
+          <ScalarProperty Name="Product_name" ColumnName="Product_name" />
+          <ScalarProperty Name="Product_dimension" ColumnName="Product_dimension" />
+          <ScalarProperty Name="Product_cost" ColumnName="Product_cost" />
+          <ScalarProperty Name="Product_maxDiscount" ColumnName="Product_maxDiscount" />
+          <ScalarProperty Name="Product_manufacturer" ColumnName="Product_manufacturer" />
+          <ScalarProperty Name="Product_provider" ColumnName="Product_provider" />
+          <ScalarProperty Name="Product_type" ColumnName="Product_type" />
+          <ScalarProperty Name="Product_discount" ColumnName="Product_discount" />
+          <ScalarProperty Name="Product_stock" ColumnName="Product_stock" />
+          <ScalarProperty Name="Product_description" ColumnName="Product_description" />
+          <ScalarProperty Name="Product_image" ColumnName="Product_image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTypes">
+      <EntityTypeMapping TypeName="DemoDBModel.ProductTypes">
+        <MappingFragment StoreEntitySet="ProductTypes">
+          <ScalarProperty Name="ProductType_id" ColumnName="ProductType_id" />
+          <ScalarProperty Name="ProductType_name" ColumnName="ProductType_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Providers">
+      <EntityTypeMapping TypeName="DemoDBModel.Providers">
+        <MappingFragment StoreEntitySet="Providers">
+          <ScalarProperty Name="Provider_id" ColumnName="Provider_id" />
+          <ScalarProperty Name="Provider_name" ColumnName="Provider_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="DemoDBModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRoles">
+      <EntityTypeMapping TypeName="DemoDBModel.UserRoles">
+        <MappingFragment StoreEntitySet="UserRoles">
+          <ScalarProperty Name="UserRole_id" ColumnName="UserRole_id" />
+          <ScalarProperty Name="UserRole_name" ColumnName="UserRole_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DemoDBModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="User_id" ColumnName="User_id" />
+          <ScalarProperty Name="User_lastName" ColumnName="User_lastName" />
+          <ScalarProperty Name="User_firstName" ColumnName="User_firstName" />
+          <ScalarProperty Name="User_middleName" ColumnName="User_middleName" />
+          <ScalarProperty Name="User_login" ColumnName="User_login" />
+          <ScalarProperty Name="User_password" ColumnName="User_password" />
+          <ScalarProperty Name="User_role" ColumnName="User_role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

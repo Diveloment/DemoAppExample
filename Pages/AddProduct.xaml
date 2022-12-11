@@ -1,0 +1,74 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DemoApp2.Pages"
+      xmlns:Entities="clr-namespace:DemoApp2.Entities" x:Class="DemoApp2.Pages.AddProduct"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Добавление продукта">
+
+    <Grid Margin="15,15,15,15" Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" HorizontalAlignment="Right">
+                <Label Content="Артикул:" FontSize="14"/>
+                <TextBox x:Name="textArticle" Width="175" Height="30" Cursor="IBeam" FontSize="14" VerticalAlignment="Center" Text="" HorizontalAlignment="Right"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" HorizontalAlignment="Right">
+                <Label Content="Наименование:" FontSize="14"/>
+                <TextBox x:Name="textName" Width="175" Height="30" Cursor="IBeam" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Text=""/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" HorizontalAlignment="Right">
+                <Label Content="Измерение:" FontSize="14"/>
+                <ComboBox x:Name="comboDim" Width="175" Height="30" Cursor="IBeam" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" HorizontalAlignment="Right">
+                <Label Content="Стоимость:" FontSize="14"/>
+                <TextBox x:Name="textCost" Width="175" Height="30" Cursor="IBeam" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Text=""/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" HorizontalAlignment="Right">
+                <Label Content="Производитель:" FontSize="14"/>
+                <ComboBox x:Name="comboManuf" Width="175" Height="30" Cursor="IBeam" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" DisplayMemberPath="Manufacturer_name"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" HorizontalAlignment="Right">
+                <Label Content="Макс. скидка:" FontSize="14"/>
+                <TextBox x:Name="textMaxSale" Width="175" Height="30" Cursor="IBeam" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Text=""/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" HorizontalAlignment="Right">
+                <Label Content="Скидка:" FontSize="14"/>
+                <TextBox x:Name="textSale" Width="175" Height="30" Cursor="IBeam" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Text=""/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" HorizontalAlignment="Right">
+                <Label Content="Кол-во на складе:" FontSize="14"/>
+                <TextBox x:Name="textStock" Width="175" Height="30" Cursor="IBeam" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Text=""/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" HorizontalAlignment="Left">
+                <Label Content="Описание:" FontSize="14" Width="95"/>
+                <TextBox x:Name="textDescription" Width="270" Height="100" Cursor="IBeam" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" MaxLines="20" MinLines="20" TextWrapping="Wrap"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" HorizontalAlignment="Left">
+                <Label Content="Поставщик:" FontSize="14" Width="95"/>
+                <ComboBox x:Name="comboProv" Width="175" Height="30" Cursor="IBeam" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" DisplayMemberPath="Provider_name"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5,5,5,5" HorizontalAlignment="Left">
+                <Label Content="Категория:" FontSize="14" Width="95"/>
+                <ComboBox x:Name="comboType" Width="175" Height="30" Cursor="IBeam" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" DisplayMemberPath="ProductType_name"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Height="auto">
+                <Image x:Name="pageImg" Height="100" Width="100" Source="/Imgs/picture.png"></Image>
+                <Button Width="175" Height="25" Margin="5,5,5,5" Content="Загрузить изображение" Click="loadImg"></Button>
+                <Button Width="175" Height="25" Margin="5,5,5,5" Content="Применить" Click="submit"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

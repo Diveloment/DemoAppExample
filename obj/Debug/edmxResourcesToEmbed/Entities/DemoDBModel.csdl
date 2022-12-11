@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DemoDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Manufacturers">
+    <Key>
+      <PropertyRef Name="Manufacturer_id" />
+    </Key>
+    <Property Name="Manufacturer_id" Type="Int32" Nullable="false" />
+    <Property Name="Manufacturer_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Manufacturers" FromRole="Manufacturers" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="OrderData">
+    <Key>
+      <PropertyRef Name="OrderData_id" />
+    </Key>
+    <Property Name="OrderData_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderData_data" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="OrderData_endData" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="OrderData_pickUpPoint" Type="Int32" Nullable="false" />
+    <Property Name="OrderData_user" Type="Int32" Nullable="false" />
+    <Property Name="OrderData_code" Type="Int32" Nullable="false" />
+    <Property Name="OrderData_status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="PickUpPoints" Relationship="Self.FK_OrderData_PickUpPoints" FromRole="OrderData" ToRole="PickUpPoints" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_OrderData_Users" FromRole="OrderData" ToRole="Users" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_OrderData" FromRole="OrderData" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="Order_id" />
+    </Key>
+    <Property Name="Order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Order_dataId" Type="Int32" Nullable="false" />
+    <Property Name="Order_productId" Type="Int32" Nullable="false" />
+    <Property Name="Order_count" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OrderData" Relationship="Self.FK_Orders_OrderData" FromRole="Orders" ToRole="OrderData" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Orders_Products" FromRole="Orders" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="PickUpPoints">
+    <Key>
+      <PropertyRef Name="PickUpPoint_id" />
+    </Key>
+    <Property Name="PickUpPoint_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PickUpPoint_index" Type="Int32" Nullable="false" />
+    <Property Name="PickUpPoint_city" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PickUpPoint_street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PickUpPoint_building" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="OrderData" Relationship="Self.FK_OrderData_PickUpPoints" FromRole="PickUpPoints" ToRole="OrderData" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Product_id" />
+    </Key>
+    <Property Name="Product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_article" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Product_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Product_dimension" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Product_cost" Type="Single" Nullable="false" />
+    <Property Name="Product_maxDiscount" Type="Single" />
+    <Property Name="Product_manufacturer" Type="Int32" Nullable="false" />
+    <Property Name="Product_provider" Type="Int32" Nullable="false" />
+    <Property Name="Product_type" Type="Int32" Nullable="false" />
+    <Property Name="Product_discount" Type="Single" />
+    <Property Name="Product_stock" Type="Int32" Nullable="false" />
+    <Property Name="Product_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Product_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Manufacturers" Relationship="Self.FK_Products_Manufacturers" FromRole="Products" ToRole="Manufacturers" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Products" FromRole="Products" ToRole="Orders" />
+    <NavigationProperty Name="ProductTypes" Relationship="Self.FK_Products_ProductTypes" FromRole="Products" ToRole="ProductTypes" />
+    <NavigationProperty Name="Providers" Relationship="Self.FK_Products_Providers" FromRole="Products" ToRole="Providers" />
+  </EntityType>
+  <EntityType Name="ProductTypes">
+    <Key>
+      <PropertyRef Name="ProductType_id" />
+    </Key>
+    <Property Name="ProductType_id" Type="Int32" Nullable="false" />
+    <Property Name="ProductType_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_ProductTypes" FromRole="ProductTypes" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Providers">
+    <Key>
+      <PropertyRef Name="Provider_id" />
+    </Key>
+    <Property Name="Provider_id" Type="Int32" Nullable="false" />
+    <Property Name="Provider_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Providers" FromRole="Providers" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UserRoles">
+    <Key>
+      <PropertyRef Name="UserRole_id" />
+    </Key>
+    <Property Name="UserRole_id" Type="Int32" Nullable="false" />
+    <Property Name="UserRole_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserRoles" FromRole="UserRoles" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="User_id" />
+    </Key>
+    <Property Name="User_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_lastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="User_firstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="User_middleName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="User_login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="User_password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="User_role" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OrderData" Relationship="Self.FK_OrderData_Users" FromRole="Users" ToRole="OrderData" />
+    <NavigationProperty Name="UserRoles" Relationship="Self.FK_Users_UserRoles" FromRole="Users" ToRole="UserRoles" />
+  </EntityType>
+  <Association Name="FK_Products_Manufacturers">
+    <End Role="Manufacturers" Type="Self.Manufacturers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturers">
+        <PropertyRef Name="Manufacturer_id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="Product_manufacturer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderData_PickUpPoints">
+    <End Role="PickUpPoints" Type="Self.PickUpPoints" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderData" Type="Self.OrderData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PickUpPoints">
+        <PropertyRef Name="PickUpPoint_id" />
+      </Principal>
+      <Dependent Role="OrderData">
+        <PropertyRef Name="OrderData_pickUpPoint" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderData_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OrderData" Type="Self.OrderData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="User_id" />
+      </Principal>
+      <Dependent Role="OrderData">
+        <PropertyRef Name="OrderData_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_OrderData">
+    <End Role="OrderData" Type="Self.OrderData" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderData">
+        <PropertyRef Name="OrderData_id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Order_dataId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Product_id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Order_productId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_ProductTypes">
+    <End Role="ProductTypes" Type="Self.ProductTypes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductTypes">
+        <PropertyRef Name="ProductType_id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="Product_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Providers">
+    <End Role="Providers" Type="Self.Providers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Providers">
+        <PropertyRef Name="Provider_id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="Product_provider" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_UserRoles">
+    <End Role="UserRoles" Type="Self.UserRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRoles">
+        <PropertyRef Name="UserRole_id" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="User_role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DemoDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" />
+    <EntitySet Name="OrderData" EntityType="Self.OrderData" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" />
+    <EntitySet Name="PickUpPoints" EntityType="Self.PickUpPoints" />
+    <EntitySet Name="Products" EntityType="Self.Products" />
+    <EntitySet Name="ProductTypes" EntityType="Self.ProductTypes" />
+    <EntitySet Name="Providers" EntityType="Self.Providers" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRoles" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK_Products_Manufacturers" Association="Self.FK_Products_Manufacturers">
+      <End Role="Manufacturers" EntitySet="Manufacturers" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderData_PickUpPoints" Association="Self.FK_OrderData_PickUpPoints">
+      <End Role="PickUpPoints" EntitySet="PickUpPoints" />
+      <End Role="OrderData" EntitySet="OrderData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderData_Users" Association="Self.FK_OrderData_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="OrderData" EntitySet="OrderData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_OrderData" Association="Self.FK_Orders_OrderData">
+      <End Role="OrderData" EntitySet="OrderData" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Products" Association="Self.FK_Orders_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_ProductTypes" Association="Self.FK_Products_ProductTypes">
+      <End Role="ProductTypes" EntitySet="ProductTypes" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Providers" Association="Self.FK_Products_Providers">
+      <End Role="Providers" EntitySet="Providers" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_UserRoles" Association="Self.FK_Users_UserRoles">
+      <End Role="UserRoles" EntitySet="UserRoles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

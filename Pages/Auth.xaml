@@ -1,0 +1,20 @@
+﻿<Page x:Class="DemoApp2.Pages.Auth"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DemoApp2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Auth">
+
+    <Grid>
+        <StackPanel x:Name="authForm" Width="450" Height="250" Background="White">
+            <Label Content="Логин:" Margin="55, 25, 55, 0"></Label>
+            <TextBox x:Name="loginField" Margin="55, 0, 55, 0" FontSize="16" Text=""></TextBox>
+            <Label Content="Пароль:" Margin="55, 5, 55, 0"></Label>
+            <PasswordBox x:Name="passwordField" Margin="55, 0, 55, 0" FontSize="16" InputScope="Password"/>
+            <Button Width="175" Height="25" Margin="25" Content="Войти" Click="auth"></Button>
+        </StackPanel>
+    </Grid>
+</Page>
